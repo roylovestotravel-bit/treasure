@@ -1,4 +1,4 @@
-# 晨隅 · 生活选物(网店 Demo)
+# Treasure | Electric Bike Brand Website
 
 一个从 0 开始搭建的网上商店演示项目,用于学习网页开发和 Git/GitHub 使用流程。
 
