@@ -1,71 +1,195 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>晨隅 · 生活选物</title>
+
+<title>Treasure | Electric Bikes</title>
+
 <link rel="stylesheet" href="styles.css">
+
 </head>
+
+
 <body>
 
+
 <header>
-  <div class="brand">晨隅 <span>· 生活选物</span></div>
-  <nav>
-    <a href="#new">新品</a>
-    <a href="#all">全部商品</a>
-    <a href="#about">关于我们</a>
-  </nav>
-  <button class="cart-btn" onclick="toggleDrawer(true)">
-    购物车 <span class="cart-count" id="cartCount">0</span>
-  </button>
-</header>
 
-<section class="hero">
-  <div>
-    <div class="eyebrow">SLOW LIVING · 慢生活选物</div>
-    <h1>把喜欢的日常<br>一件件带回家</h1>
-    <p>这是一个演示用的网店首页示例 —— 你可以把商品图片、文案、颜色都换成自己真正要卖的东西。下面的"加入购物车"是可以真实点击互动的。</p>
-  </div>
-
-  <div class="hero-visual">
-    <video autoplay muted loop playsinline>
-      <source src="hero.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
-
-<main>
-  <div class="section-title">
-    <h2 id="all">本周精选</h2>
-    <span>共 6 件商品 · 演示数据</span>
-  </div>
-
-  <div class="grid" id="productGrid"></div>
-
-  <div class="note-banner">
-    💡 提示:这是一个纯前端演示页面,购物车和结算都是模拟效果,还没有连接真实的支付和订单系统。真正上线卖货前,还需要接入支付接口(支付宝/微信支付)、搭建后台管理商品和订单。
-  </div>
-</main>
-
-<div class="drawer-overlay" id="overlay" onclick="toggleDrawer(false)"></div>
-<div class="drawer" id="drawer">
-  <div class="drawer-head">
-    <h3>我的购物车</h3>
-    <button class="close-x" onclick="toggleDrawer(false)">✕</button>
-  </div>
-  <div class="drawer-items" id="drawerItems">
-    <div class="empty-cart">购物车还是空的,去挑几件喜欢的吧</div>
-  </div>
-  <div class="drawer-foot">
-    <div class="total-row">
-      <span>合计</span>
-      <span id="totalPrice">¥0</span>
-    </div>
-    <button class="checkout-btn" onclick="checkout()">去结算</button>
-  </div>
+<div class="brand">
+TREASURE
 </div>
 
-<script src="script.js"></script>
+
+<nav>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+
+</header>
+
+
+
+<section class="hero">
+
+
+<video autoplay muted loop playsinline>
+
+<source src="hero.mp4" type="video/mp4">
+
+</video>
+
+
+
+<div class="hero-overlay">
+
+<h1>
+Ride Beyond Everyday
+</h1>
+
+
+<p>
+Premium electric bikes designed for modern adventures.
+</p>
+
+
+<a href="#products">
+Explore Products
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="products" class="products">
+
+
+<h2>
+Our Products
+</h2>
+
+
+
+<div class="product-grid">
+
+
+
+<div class="product-card">
+
+<img src="bike1.jpg">
+
+
+<h3>
+Explorer X1
+</h3>
+
+
+<p>
+Powerful electric bike for city and outdoor riding.
+</p>
+
+
+<a href="#">
+View Details
+</a>
+
+
+</div>
+
+
+
+
+<div class="product-card">
+
+<img src="bike2.jpg">
+
+
+<h3>
+Urban X2
+</h3>
+
+
+<p>
+A comfortable and stylish bike for everyday travel.
+</p>
+
+
+<a href="#">
+View Details
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<section id="about" class="about">
+
+
+<h2>
+About Treasure
+</h2>
+
+
+<p>
+
+We believe great products should combine thoughtful design,
+reliable performance, and everyday practicality.
+
+</p>
+
+
+</section>
+
+
+
+
+
+<section id="contact" class="contact">
+
+
+<h2>
+Contact
+</h2>
+
+
+<p>
+For product inquiries, please contact us.
+</p>
+
+
+</section>
+
+
+
+
+<footer>
+
+© 2026 Treasure
+
+</footer>
+
+
 
 </body>
+
 </html>
