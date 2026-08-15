@@ -351,3 +351,64 @@ footer{
   .gallery-next{right:8px;}
   .gallery-thumbnail{flex-basis:78px;height:60px;}
 }
+
+
+/* About PA E-Bike Warehouse */
+.about{max-width:none;}
+.section-kicker{
+  display:inline-block;
+  margin-bottom:18px;
+  color:var(--ink)!important;
+  font-size:13px!important;
+  font-weight:900;
+  letter-spacing:.18em;
+  border-bottom:4px solid var(--accent);
+}
+.about h2{max-width:1000px;line-height:1.02;}
+.about-lead{
+  max-width:900px;
+  margin-bottom:48px;
+  font-size:19px!important;
+  line-height:1.7;
+}
+.about-values{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.about-value{
+  padding:30px 28px 34px 0;
+  border-right:1px solid var(--line);
+}
+.about-value:not(:first-child){padding-left:28px;}
+.about-value:last-child{border-right:0;}
+.about-value span{
+  display:inline-block;
+  margin-bottom:28px;
+  padding:4px 10px;
+  background:var(--accent-soft);
+  font-size:12px;
+  font-weight:900;
+}
+.about-value h3{
+  margin-bottom:12px;
+  font-size:21px;
+  letter-spacing:-.025em;
+}
+.about-value p{
+  font-size:14px;
+  line-height:1.65;
+}
+@media(max-width:950px){
+  .about-values{grid-template-columns:repeat(2,1fr);}
+  .about-value:nth-child(2){border-right:0;}
+  .about-value:nth-child(-n+2){border-bottom:1px solid var(--line);}
+  .about-value:nth-child(3){padding-left:0;}
+}
+@media(max-width:600px){
+  .about-values{grid-template-columns:1fr;}
+  .about-value,.about-value:not(:first-child){padding:24px 0;border-right:0;border-bottom:1px solid var(--line);}
+  .about-value:last-child{border-bottom:0;}
+  .about-value span{margin-bottom:16px;}
+}
