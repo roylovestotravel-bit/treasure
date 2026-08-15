@@ -412,3 +412,89 @@ footer{
   .about-value:last-child{border-bottom:0;}
   .about-value span{margin-bottom:16px;}
 }
+
+
+/* Trademark and brand credentials */
+.credentials{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(280px,.55fr);
+  gap:70px;
+  align-items:center;
+  padding:100px 6vw;
+  background:var(--ink);
+  color:var(--surface);
+}
+.credentials .section-kicker{
+  color:var(--surface)!important;
+  border-bottom-color:var(--accent);
+}
+.credentials h2{
+  max-width:760px;
+  margin-bottom:24px;
+  font-size:clamp(42px,5vw,72px);
+  line-height:1;
+}
+.credentials-copy > p:not(.section-kicker){
+  max-width:760px;
+  color:#b9b9b5;
+  font-size:17px;
+  line-height:1.7;
+}
+.credential-facts{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin:38px 0;
+  background:#343432;
+  border:1px solid #343432;
+}
+.credential-facts div{
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  background:#181818;
+}
+.credential-facts strong{font-size:18px;color:var(--accent);}
+.credential-facts span{margin-top:3px;color:#9c9c98;font-size:12px;}
+.certificate-link{
+  display:inline-block;
+  padding:14px 20px;
+  background:var(--accent);
+  color:var(--ink);
+  font-size:14px;
+  font-weight:900;
+}
+.certificate-preview{
+  position:relative;
+  display:block;
+  max-width:380px;
+  justify-self:end;
+  padding:12px;
+  background:var(--surface);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+  transition:transform .2s;
+}
+.certificate-preview:hover{transform:translateY(-5px);}
+.certificate-preview img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.certificate-preview span{
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  padding:8px 11px;
+  background:var(--ink);
+  color:var(--surface);
+  font-size:12px;
+  font-weight:800;
+}
+@media(max-width:850px){
+  .credentials{grid-template-columns:1fr;gap:42px;}
+  .certificate-preview{justify-self:start;max-width:330px;}
+}
+@media(max-width:560px){
+  .credential-facts{grid-template-columns:1fr;}
+  .credentials{padding:72px 6vw;}
+}
