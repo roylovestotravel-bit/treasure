@@ -498,3 +498,31 @@ footer{
   .credential-facts{grid-template-columns:1fr;}
   .credentials{padding:72px 6vw;}
 }
+
+
+/* Language switch */
+.language-switch{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  margin-left:auto;
+  padding-left:24px;
+  font-size:12px;
+  font-weight:900;
+}
+.language-switch a,.language-switch span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:32px;
+  height:30px;
+  padding:0 8px;
+  border:1px solid var(--line);
+}
+.language-switch a{color:var(--muted);background:var(--surface);}
+.language-switch a:hover{color:var(--ink);border-color:var(--ink);}
+.language-switch .active{color:var(--ink);background:var(--accent);border-color:var(--accent);}
+@media(max-width:720px){
+  header{gap:14px;}
+  .language-switch{padding-left:0;margin-left:auto;}
+}

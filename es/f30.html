@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F30 | PA E-Bike Warehouse Bicicletas eléctricas</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="product-detail-header">
+<a class="brand" href="index.html">PA E-Bike Warehouse</a>
+<nav><a href="index.html#products">Productos</a><a href="index.html#about">Nosotros</a><a href="index.html#contact">Contacto</a></nav>
+<div class="language-switch" aria-label="Idioma"><a href="../f30.html" lang="en">EN</a><span class="active">ES</span></div>
+</header>
+<main class="product-detail">
+<a class="back-link" href="index.html#products">← Volver a todos los productos</a>
+<div class="product-detail-grid">
+<div class="product-gallery" aria-label="Galería de fotos de F30">
+<div class="gallery-stage">
+<img id="f30-main-image" class="product-detail-image" src="../bike-f30.jpeg" alt="Foto de producto de la bicicleta eléctrica F30 1 de 7">
+<button class="gallery-arrow gallery-prev" type="button" aria-label="Foto anterior">‹</button>
+<button class="gallery-arrow gallery-next" type="button" aria-label="Foto siguiente">›</button>
+<div class="gallery-counter" aria-live="polite">1 / 7</div>
+</div>
+<div class="gallery-thumbnails" aria-label="Elegir una foto">
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="Ver foto 1"><img src="../bike-f30.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="1" aria-label="Ver foto 2"><img src="../f30-gallery-1.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="Ver foto 3"><img src="../f30-gallery-2.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="3" aria-label="Ver foto 4"><img src="../f30-gallery-3.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="4" aria-label="Ver foto 5"><img src="../f30-gallery-4.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="5" aria-label="Ver foto 6"><img src="../f30-gallery-5.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="6" aria-label="Ver foto 7"><img src="../f30-gallery-6.jpeg" alt=""></button>
+</div>
+</div>
+<section>
+<h1>F30</h1>
+<p class="product-intro">Una robusta bicicleta eléctrica de 1500 W y neumáticos anchos, creada para grandes aventuras.</p>
+<table class="specifications"><tbody><tr><th>Material del cuadro</th><td>Acero aleado</td></tr><tr><th>Tipo de neumático</th><td>Neumático inflable</td></tr><tr><th>Voltaje</th><td>48V</td></tr><tr><th>Motor</th><td>Sin escobillas de alta velocidad</td></tr><tr><th>Batería</th><td>18650</td></tr><tr><th>Capacidad</th><td>20Ah</td></tr><tr><th>Potencia</th><td>1500W</td></tr><tr><th>Tamaño plegado</th><td>No</td></tr><tr><th>Modelo</th><td>F30</td></tr><tr><th>Tamaño de la caja</th><td>55.12 × 11.02 × 34.65 in</td></tr><tr><th>Velocidad</th><td>32 mph</td></tr><tr><th>Resistencia al agua</th><td>IPX7</td></tr><tr><th>Autonomía</th><td>65 miles</td></tr><tr><th>Peso</th><td>44.75 kg</td></tr><tr><th>Tracción</th><td>Tracción trasera</td></tr><tr><th>Capacidad de ascenso</th><td>25°–30°</td></tr><tr><th>Tamaño del neumático</th><td>20 × 4 in</td></tr><tr><th>Sistema de frenos</th><td>Doble freno de disco hidráulico</td></tr></tbody></table>
+</section>
+</div>
+</main>
+<footer>© 2026 PA E-Bike Warehouse</footer>
+<script>
+(() => {
+  const images = [
+    "bike-f30.jpeg",
+    "f30-gallery-1.jpeg",
+    "f30-gallery-2.jpeg",
+    "f30-gallery-3.jpeg",
+    "f30-gallery-4.jpeg",
+    "f30-gallery-5.jpeg",
+    "f30-gallery-6.jpeg"
+  ];
+  const mainImage = document.getElementById("f30-main-image");
+  const counter = document.querySelector(".gallery-counter");
+  const thumbnails = [...document.querySelectorAll(".gallery-thumbnail")];
+  let current = 0;
+
+  function show(index) {
+    current = (index + images.length) % images.length;
+    mainImage.src = images[current];
+    mainImage.alt = `Foto de producto de la bicicleta eléctrica F30 ${current + 1} de ${images.length}`;
+    counter.textContent = `${current + 1} / ${images.length}`;
+    thumbnails.forEach((button, i) => {
+      button.classList.toggle("active", i === current);
+      button.setAttribute("aria-current", i === current ? "true" : "false");
+    });
+    thumbnails[current].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+
+  document.querySelector(".gallery-prev").addEventListener("click", () => show(current - 1));
+  document.querySelector(".gallery-next").addEventListener("click", () => show(current + 1));
+  thumbnails.forEach(button => button.addEventListener("click", () => show(Number(button.dataset.index))));
+  document.addEventListener("keydown", event => {
+    if (event.key === "ArrowLeft") show(current - 1);
+    if (event.key === "ArrowRight") show(current + 1);
+  });
+})();
+</script>
+</body>
+</html>
