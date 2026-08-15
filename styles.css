@@ -658,3 +658,24 @@ footer{
   background:var(--accent);
   color:var(--ink);
 }
+
+.warehouse-item{grid-column:1/-1;}
+.warehouse-addresses{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+.warehouse-addresses address{
+  padding-left:16px;
+  border-left:3px solid var(--accent);
+}
+.warehouse-addresses b{
+  display:block;
+  margin-bottom:5px;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+@media(max-width:700px){
+  .warehouse-addresses{grid-template-columns:1fr;}
+}
