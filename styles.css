@@ -642,3 +642,19 @@ footer{
   .contact-grid{grid-template-columns:1fr;}
   .contact-item{min-height:120px;}
 }
+
+.contact .quote-button{
+  display:inline-block;
+  margin-top:28px;
+  padding:14px 22px;
+  border:2px solid var(--ink);
+  background:var(--ink);
+  color:var(--surface);
+  font-size:14px;
+  font-weight:900;
+  transition:background .2s,color .2s;
+}
+.contact .quote-button:hover{
+  background:var(--accent);
+  color:var(--ink);
+}
