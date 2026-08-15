@@ -39,7 +39,7 @@ header{
   letter-spacing:-.03em;
   color:var(--ink);
 }
-nav{display:flex;gap:32px;font-size:14px;font-weight:700;}
+nav{display:flex;gap:32px;margin-left:auto;font-size:14px;font-weight:700;}
 nav a{color:var(--muted);transition:color .2s;}
 nav a:hover{color:var(--ink);}
 
@@ -505,8 +505,8 @@ footer{
   display:flex;
   align-items:center;
   gap:2px;
-  margin-left:auto;
-  padding-left:24px;
+  margin-left:18px;
+  padding-left:0;
   font-size:12px;
   font-weight:900;
 }
