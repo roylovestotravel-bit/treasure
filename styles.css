@@ -165,3 +165,80 @@ footer{
   .hero-overlay h1{font-size:38px;}
   .products{padding:60px 6vw;}
 }
+
+
+/* Product detail pages */
+.product-card > a.product-image-link{
+  display:block;
+  margin:0;
+  padding:0;
+  border:0;
+}
+.product-detail-header{
+  position:static;
+  background:var(--asphalt);
+  border-bottom:1px solid var(--line);
+}
+.product-detail-header nav{align-items:center;}
+.product-detail{
+  min-height:calc(100vh - 150px);
+  padding:70px 6vw 100px;
+}
+.back-link{
+  display:inline-block;
+  color:var(--copper-bright);
+  margin-bottom:30px;
+  font-size:14px;
+}
+.product-detail-grid{
+  display:grid;
+  grid-template-columns:minmax(280px, 1fr) minmax(320px, 1fr);
+  gap:56px;
+  align-items:start;
+}
+.product-detail-image{
+  width:100%;
+  max-height:620px;
+  object-fit:contain;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.product-detail h1{
+  font-size:44px;
+  margin-bottom:12px;
+}
+.product-intro{
+  color:var(--steel);
+  margin-bottom:32px;
+}
+.specifications{
+  width:100%;
+  border-collapse:collapse;
+  background:var(--asphalt-soft);
+  border:1px solid var(--line);
+}
+.specifications th,
+.specifications td{
+  padding:13px 16px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  font-size:14px;
+}
+.specifications th{
+  width:48%;
+  color:var(--steel);
+  font-weight:500;
+}
+.specifications tr:last-child th,
+.specifications tr:last-child td{border-bottom:0;}
+.specs-coming-soon{
+  padding:24px;
+  color:var(--steel);
+  background:var(--asphalt-soft);
+  border:1px solid var(--line);
+}
+@media (max-width:800px){
+  .product-detail{padding-top:42px;}
+  .product-detail-grid{grid-template-columns:1fr; gap:32px;}
+  .product-detail h1{font-size:36px;}
+}
