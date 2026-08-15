@@ -63,7 +63,7 @@ nav a:hover{color:var(--ink);}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to right,rgba(244,244,241,.96) 0%,rgba(244,244,241,.88) 44%,rgba(244,244,241,.22) 78%);
+  background:linear-gradient(to right,rgba(244,244,241,.72) 0%,rgba(244,244,241,.46) 44%,rgba(244,244,241,.06) 78%);
 }
 .hero-overlay{
   position:relative;
@@ -261,7 +261,7 @@ footer{
   nav{display:none;}
   .hero-overlay h1{font-size:58px;}
   .hero-overlay p{font-size:17px;}
-  .hero::after{background:rgba(244,244,241,.84);}
+  .hero::after{background:rgba(244,244,241,.58);}
   .products{padding:72px 6vw;}
   .product-detail{padding-top:42px;}
   .product-detail-grid{grid-template-columns:1fr;gap:34px;}
