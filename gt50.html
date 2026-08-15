@@ -15,7 +15,21 @@
 <main class="product-detail">
 <a class="back-link" href="index.html#products">← Back to all products</a>
 <div class="product-detail-grid">
-<img class="product-detail-image" src="bike1.jpg" alt="GT50 electric bike">
+<div class="product-gallery" aria-label="GT50 photo gallery">
+<div class="gallery-stage">
+<img id="gt50-main-image" class="product-detail-image" src="bike1.jpg" alt="GT50 electric bike product photo 1 of 5">
+<button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">‹</button>
+<button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">›</button>
+<div class="gallery-counter" aria-live="polite">1 / 5</div>
+</div>
+<div class="gallery-thumbnails" aria-label="Choose a photo">
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="View photo 1"><img src="bike1.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="1" aria-label="View photo 2"><img src="gt50-gallery-warehouse.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="View photo 3"><img src="gt50-gallery-front.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="3" aria-label="View photo 4"><img src="gt50-gallery-side.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="4" aria-label="View photo 5"><img src="gt50-gallery-pickup-private.png" alt=""></button>
+</div>
+</div>
 <section>
 <h1>GT50</h1>
 <p class="product-intro">A capable electric bike for city streets and outdoor riding.</p>
@@ -24,5 +38,32 @@
 </div>
 </main>
 <footer>© 2026 PA E-Bike Warehouse</footer>
+<script>
+(() => {
+  const images = ["bike1.jpg", "gt50-gallery-warehouse.jpg", "gt50-gallery-front.jpg", "gt50-gallery-side.jpg", "gt50-gallery-pickup-private.png"];
+  const mainImage = document.getElementById("gt50-main-image");
+  const counter = document.querySelector(".gallery-counter");
+  const thumbnails = [...document.querySelectorAll(".gallery-thumbnail")];
+  let current = 0;
+  function show(index) {
+    current = (index + images.length) % images.length;
+    mainImage.src = images[current];
+    mainImage.alt = `GT50 electric bike product photo ${current + 1} of ${images.length}`;
+    counter.textContent = `${current + 1} / ${images.length}`;
+    thumbnails.forEach((button, i) => {
+      button.classList.toggle("active", i === current);
+      button.setAttribute("aria-current", i === current ? "true" : "false");
+    });
+    thumbnails[current].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+  document.querySelector(".gallery-prev").addEventListener("click", () => show(current - 1));
+  document.querySelector(".gallery-next").addEventListener("click", () => show(current + 1));
+  thumbnails.forEach(button => button.addEventListener("click", () => show(Number(button.dataset.index))));
+  document.addEventListener("keydown", event => {
+    if (event.key === "ArrowLeft") show(current - 1);
+    if (event.key === "ArrowRight") show(current + 1);
+  });
+})();
+</script>
 </body>
 </html>
