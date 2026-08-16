@@ -80,6 +80,8 @@ Our Products
 
 
 
+<div class="product-carousel" aria-label="Product gallery">
+<button class="product-carousel-arrow product-carousel-prev" type="button" aria-label="View previous products">‹</button>
 <div class="product-grid">
 
 
@@ -237,6 +239,27 @@ View Details
 
 
 
+
+
+<div class="product-card">
+<a class="product-image-link" href="g26.html">
+<img src="g26-gallery-1.jpg" alt="G26 electric bike">
+</a>
+<h3>G26</h3>
+<p>A practical 500W 26-inch electric bike with dependable range for everyday rides.</p>
+<a href="g26.html">View Details</a>
+</div>
+
+<div class="product-card">
+<a class="product-image-link" href="f28.html">
+<img src="f28-product.jpg" alt="F28 electric bike">
+</a>
+<h3>F28</h3>
+<p>A responsive 750W 26-inch electric bike designed for confident commuting and recreation.</p>
+<a href="f28.html">View Details</a>
+</div>
+</div>
+<button class="product-carousel-arrow product-carousel-next" type="button" aria-label="View more products">›</button>
 </div>
 
 
@@ -330,6 +353,23 @@ View Details
 
 
 
+
+<script>
+(() => {
+  document.querySelectorAll(".product-carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".product-grid");
+    const previous = carousel.querySelector(".product-carousel-prev");
+    const next = carousel.querySelector(".product-carousel-next");
+    const move = (direction) => {
+      const card = track.querySelector(".product-card");
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
+      track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+    };
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+  });
+})();
+</script>
 </body>
 
 </html>
