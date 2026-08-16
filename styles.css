@@ -570,6 +570,20 @@ footer{
   font-size:14px;
   white-space:nowrap;
 }
+.pricing-quote-link{
+  justify-self:end;
+  border-bottom:2px solid var(--ink);
+  color:var(--ink);
+  font-size:13px;
+  font-weight:900;
+  line-height:1.25;
+  white-space:nowrap;
+  transition:color .2s,border-color .2s;
+}
+.pricing-quote-link:hover{
+  color:#657700;
+  border-color:var(--accent);
+}
 .f30-pricing small{
   grid-column:1/-1;
   color:var(--muted);
