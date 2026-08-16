@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G26 | PA E-Bike Warehouse Electric Bikes</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="product-detail-header"><a class="brand" href="index.html">PA E-Bike Warehouse</a>
+<nav><a href="index.html#products">Products</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></nav>
+<div class="language-switch" aria-label="Language"><span class="active">EN</span><a href="es/g26.html" lang="es">ES</a></div></header>
+<main class="product-detail"><a class="back-link" href="index.html#products">← Back to all products</a>
+<div class="product-detail-grid"><div class="product-gallery" aria-label="G26 photo gallery">
+<div class="gallery-stage"><img id="g26-main-image" class="product-detail-image" src="g26-gallery-1.jpg" alt="G26 electric bike product photo 1 of 4">
+<button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">‹</button><button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">›</button>
+<div class="gallery-counter" aria-live="polite">1 / 4</div></div>
+<div class="gallery-thumbnails" aria-label="Choose a photo">
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="View photo 1"><img src="g26-gallery-1.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="1" aria-label="View photo 2"><img src="g26-gallery-2.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="View photo 3"><img src="g26-gallery-3.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="3" aria-label="View photo 4"><img src="g26-gallery-4.jpg" alt=""></button>
+</div></div>
+<section><h1>G26</h1><p class="product-intro">A practical 500W 26-inch electric bike with dependable range for everyday rides.</p>
+<table class="specifications"><tbody>
+<tr><th>Frame Material</th><td>Alloy Steel</td></tr><tr><th>Tyre Type</th><td>Pneumatic Tire</td></tr>
+<tr><th>Voltage</th><td>48V</td></tr><tr><th>Motor</th><td>High-speed brushless</td></tr>
+<tr><th>Battery</th><td>18650</td></tr><tr><th>Capacity</th><td>10Ah</td></tr>
+<tr><th>Power</th><td>500W</td></tr><tr><th>Foldable</th><td>No</td></tr>
+<tr><th>Model</th><td>G26</td></tr><tr><th>Packing Box Size</th><td>54.33 × 8.66 × 26.77 in</td></tr>
+<tr><th>Speed</th><td>22 mph</td></tr><tr><th>Waterproof Rating</th><td>IPX7</td></tr>
+<tr><th>Range</th><td>45 miles</td></tr><tr><th>Weight</th><td>22.5 kg</td></tr>
+<tr><th>Motor Drive</th><td>Rear drive</td></tr><tr><th>Gradeability</th><td>15°–20°</td></tr>
+<tr><th>Tire Size</th><td>26 in</td></tr><tr><th>Brake Device</th><td>Dual mechanical disc brake</td></tr>
+</tbody></table></section></div></main><footer>© 2026 PA E-Bike Warehouse</footer>
+<script>(()=>{const images=["g26-gallery-1.jpg","g26-gallery-2.jpg","g26-gallery-3.jpg","g26-gallery-4.jpg"],main=document.getElementById("g26-main-image"),counter=document.querySelector(".gallery-counter"),thumbs=[...document.querySelectorAll(".gallery-thumbnail")];let current=0;function show(index){current=(index+images.length)%images.length;main.src=images[current];main.alt=`G26 electric bike product photo ${current+1} of ${images.length}`;counter.textContent=`${current+1} / ${images.length}`;thumbs.forEach((b,i)=>b.classList.toggle("active",i===current));thumbs[current].scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});}document.querySelector(".gallery-prev").addEventListener("click",()=>show(current-1));document.querySelector(".gallery-next").addEventListener("click",()=>show(current+1));thumbs.forEach((b)=>b.addEventListener("click",()=>show(Number(b.dataset.index))));})();</script>
+</body></html>
