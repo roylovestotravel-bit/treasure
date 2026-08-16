@@ -570,11 +570,18 @@ footer{
   font-size:14px;
   white-space:nowrap;
 }
+.f30-pricing li:last-child{
+  grid-template-columns:minmax(0,1fr) 132px;
+  align-items:center;
+  min-height:52px;
+}
 .pricing-quote-link{
   justify-self:end;
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  width:132px;
+  min-height:36px;
   padding:7px 10px;
   border:2px solid var(--ink);
   background:var(--ink);
