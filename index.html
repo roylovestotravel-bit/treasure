@@ -7,7 +7,7 @@
 
 <title>PA E-Bike Warehouse | Electric Bikes</title>
 
-<link rel="stylesheet" href="styles.css?v=20260817a">
+<link rel="stylesheet" href="styles.css?v=20260817b">
 
 </head>
 
@@ -391,12 +391,6 @@ View Details
 <article class="process-step"><span class="step-number">1</span><h3>Choose a Model</h3><p>Find the e-bike that fits your needs.</p></article>
 <article class="process-step"><span class="step-number">2</span><h3>Confirm Inventory</h3><p>Contact us to verify current availability.</p></article>
 <article class="process-step has-paths"><span class="step-number">3</span><h3>Select a Location</h3><p>Choose the most convenient pickup or handoff location.</p></article>
-<div class="shipping-flow" aria-label="Shipping process">
-<span class="shipping-flow-label">FOR SHIPPING</span>
-<div class="shipping-flow-step"><span class="step-number">3A</span><h3>Confirm Delivery Address</h3><p>Confirm the complete personal shipping address.</p></div>
-<div class="shipping-flow-step"><span class="step-number">4A</span><h3>Full Payment</h3><p>Pay in full at the warehouse office. We provide the BOL, order number, and receipt.</p></div>
-<div class="shipping-flow-step"><span class="step-number">5A</span><h3>Customer Confirmation</h3><p>The customer signs to confirm receipt of the order.</p></div>
-</div>
 <article class="process-step"><span class="step-number">4</span><h3>Meet &amp; Pay</h3><p>For your first purchase, meet us in person and pay at the agreed location.</p></article>
 <article class="process-step"><span class="step-number">5</span><h3>Receive Your E-Bike</h3><p>Payment and product handoff happen together. The purchase is complete.</p></article>
 </div>
@@ -469,13 +463,17 @@ View Details
       track.scrollBy({ left: stepSize(), behavior: "smooth" });
       afterScroll(() => {
         const snap = track.style.scrollSnapType;
+        const behavior = track.style.scrollBehavior;
         track.style.scrollSnapType = "none";
+        track.style.scrollBehavior = "auto";
         track.appendChild(firstCard);
-        track.scrollLeft = 0;
-        requestAnimationFrame(() => {
+        track.scrollTo({ left: 0, behavior: "auto" });
+        void track.offsetWidth;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
           track.style.scrollSnapType = snap;
+          track.style.scrollBehavior = behavior;
           moving = false;
-        });
+        }));
       });
     };
 
@@ -485,14 +483,18 @@ View Details
       const distance = stepSize();
       const lastCard = track.lastElementChild;
       const snap = track.style.scrollSnapType;
+      const behavior = track.style.scrollBehavior;
       track.style.scrollSnapType = "none";
+      track.style.scrollBehavior = "auto";
       track.insertBefore(lastCard, track.firstElementChild);
-      track.scrollLeft = distance;
-      requestAnimationFrame(() => {
+      track.scrollTo({ left: distance, behavior: "auto" });
+      void track.offsetWidth;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
         track.style.scrollSnapType = snap;
+        track.style.scrollBehavior = behavior;
         track.scrollTo({ left: 0, behavior: "smooth" });
         afterScroll(() => { moving = false; });
-      });
+      }));
     };
 
     previous.addEventListener("click", movePrevious);
