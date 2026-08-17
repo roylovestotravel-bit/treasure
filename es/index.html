@@ -428,24 +428,62 @@ Ver detalles
     const track = carousel.querySelector(".product-grid");
     const previous = carousel.querySelector(".product-carousel-prev");
     const next = carousel.querySelector(".product-carousel-next");
-    const move = (direction) => {
+    const originalCards = [...track.querySelectorAll(".product-card")];
+    const total = originalCards.length;
+    const cloneCount = Math.min(3, total);
+    let current = 0;
+    let moving = false;
+    let resetTimer;
+
+    const makeClone = (card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("a, button").forEach((item) => item.setAttribute("tabindex", "-1"));
+      return clone;
+    };
+
+    originalCards.slice(-cloneCount).reverse().forEach((card) => {
+      track.insertBefore(makeClone(card), track.firstChild);
+    });
+    originalCards.slice(0, cloneCount).forEach((card) => {
+      track.appendChild(makeClone(card));
+    });
+
+    const stepSize = () => {
       const card = track.querySelector(".product-card");
       const gap = parseFloat(getComputedStyle(track).gap) || 24;
-      const distance = card.getBoundingClientRect().width + gap;
-      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-      const edgeThreshold = Math.max(4, gap / 2);
-      if (direction > 0 && track.scrollLeft >= maxScroll - edgeThreshold) {
-        track.scrollTo({ left: 0, behavior: "smooth" });
-        return;
-      }
-      if (direction < 0 && track.scrollLeft <= edgeThreshold) {
-        track.scrollTo({ left: maxScroll, behavior: "smooth" });
-        return;
-      }
-      track.scrollBy({ left: direction * distance, behavior: "smooth" });
+      return card.getBoundingClientRect().width + gap;
     };
+
+    const setPosition = (index, smooth) => {
+      track.scrollTo({
+        left: (cloneCount + index) * stepSize(),
+        behavior: smooth ? "smooth" : "auto"
+      });
+    };
+
+    const move = (direction) => {
+      if (moving || total < 2) return;
+      moving = true;
+      current += direction;
+      setPosition(current, true);
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        if (current >= total) {
+          current = 0;
+          setPosition(current, false);
+        } else if (current < 0) {
+          current = total - 1;
+          setPosition(current, false);
+        }
+        moving = false;
+      }, 520);
+    };
+
+    requestAnimationFrame(() => setPosition(0, false));
     previous.addEventListener("click", () => move(-1));
     next.addEventListener("click", () => move(1));
+    window.addEventListener("resize", () => setPosition(current, false));
   });
 })();
 </script>
