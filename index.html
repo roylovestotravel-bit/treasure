@@ -440,26 +440,8 @@ View Details
     const track = carousel.querySelector(".product-grid");
     const previous = carousel.querySelector(".product-carousel-prev");
     const next = carousel.querySelector(".product-carousel-next");
-    const originalCards = [...track.querySelectorAll(".product-card")];
-    const total = originalCards.length;
-    const cloneCount = Math.min(3, total);
-    let current = 0;
     let moving = false;
-    let resetTimer;
-
-    const makeClone = (card) => {
-      const clone = card.cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      clone.querySelectorAll("a, button").forEach((item) => item.setAttribute("tabindex", "-1"));
-      return clone;
-    };
-
-    originalCards.slice(-cloneCount).reverse().forEach((card) => {
-      track.insertBefore(makeClone(card), track.firstChild);
-    });
-    originalCards.slice(0, cloneCount).forEach((card) => {
-      track.appendChild(makeClone(card));
-    });
+    track.style.overflowAnchor = "none";
 
     const stepSize = () => {
       const card = track.querySelector(".product-card");
@@ -467,35 +449,54 @@ View Details
       return card.getBoundingClientRect().width + gap;
     };
 
-    const setPosition = (index, smooth) => {
-      track.scrollTo({
-        left: (cloneCount + index) * stepSize(),
-        behavior: smooth ? "smooth" : "auto"
+    const afterScroll = (callback) => {
+      let finished = false;
+      const complete = () => {
+        if (finished) return;
+        finished = true;
+        track.removeEventListener("scrollend", complete);
+        clearTimeout(fallback);
+        callback();
+      };
+      const fallback = setTimeout(complete, 900);
+      track.addEventListener("scrollend", complete, { once: true });
+    };
+
+    const moveNext = () => {
+      if (moving) return;
+      moving = true;
+      const firstCard = track.firstElementChild;
+      track.scrollBy({ left: stepSize(), behavior: "smooth" });
+      afterScroll(() => {
+        const snap = track.style.scrollSnapType;
+        track.style.scrollSnapType = "none";
+        track.appendChild(firstCard);
+        track.scrollLeft = 0;
+        requestAnimationFrame(() => {
+          track.style.scrollSnapType = snap;
+          moving = false;
+        });
       });
     };
 
-    const move = (direction) => {
-      if (moving || total < 2) return;
+    const movePrevious = () => {
+      if (moving) return;
       moving = true;
-      current += direction;
-      setPosition(current, true);
-      clearTimeout(resetTimer);
-      resetTimer = setTimeout(() => {
-        if (current >= total) {
-          current = 0;
-          setPosition(current, false);
-        } else if (current < 0) {
-          current = total - 1;
-          setPosition(current, false);
-        }
-        moving = false;
-      }, 520);
+      const distance = stepSize();
+      const lastCard = track.lastElementChild;
+      const snap = track.style.scrollSnapType;
+      track.style.scrollSnapType = "none";
+      track.insertBefore(lastCard, track.firstElementChild);
+      track.scrollLeft = distance;
+      requestAnimationFrame(() => {
+        track.style.scrollSnapType = snap;
+        track.scrollTo({ left: 0, behavior: "smooth" });
+        afterScroll(() => { moving = false; });
+      });
     };
 
-    requestAnimationFrame(() => setPosition(0, false));
-    previous.addEventListener("click", () => move(-1));
-    next.addEventListener("click", () => move(1));
-    window.addEventListener("resize", () => setPosition(current, false));
+    previous.addEventListener("click", movePrevious);
+    next.addEventListener("click", moveNext);
   });
 })();
 </script>
