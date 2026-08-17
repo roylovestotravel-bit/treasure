@@ -1091,7 +1091,6 @@ footer{
 }
 @media (max-width:900px){
   .shipping-flow{
-    order:4;
     position:relative;
     margin:8px 0 6px 28px;
     padding:40px 0 4px 18px;
