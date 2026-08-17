@@ -772,3 +772,75 @@ footer{
   .product-carousel-prev{left:-10px;}
   .product-carousel-next{right:-10px;}
 }
+
+
+/* Simple purchase and pickup process */
+.purchase-process{
+  padding:96px 8%;
+  background:var(--surface);
+  border-top:1px solid var(--line);
+}
+.purchase-process .process-heading{
+  max-width:900px;
+  margin-bottom:48px;
+}
+.purchase-process h2{
+  max-width:800px;
+  margin:12px 0 16px;
+  font-size:clamp(42px,6vw,82px);
+  line-height:.96;
+  letter-spacing:-.055em;
+}
+.purchase-process .process-intro{
+  max-width:720px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+}
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.process-step{
+  position:relative;
+  min-height:230px;
+  padding:28px 24px;
+  border-right:1px solid var(--line);
+}
+.process-step:last-child{border-right:0}
+.process-step .step-number{
+  display:inline-flex;
+  width:38px;
+  height:38px;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:54px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#111;
+  font-weight:800;
+}
+.process-step h3{
+  margin:0 0 10px;
+  font-size:20px;
+}
+.process-step p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+@media (max-width:900px){
+  .process-steps{grid-template-columns:1fr 1fr}
+  .process-step{border-bottom:1px solid var(--line)}
+  .process-step:nth-child(2n){border-right:0}
+  .process-step:last-child{grid-column:1/-1;border-bottom:0}
+}
+@media (max-width:560px){
+  .purchase-process{padding:72px 6%}
+  .process-steps{grid-template-columns:1fr}
+  .process-step{min-height:0;border-right:0}
+  .process-step:last-child{grid-column:auto}
+  .process-step .step-number{margin-bottom:28px}
+}
