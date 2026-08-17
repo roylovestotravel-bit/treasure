@@ -1150,3 +1150,36 @@ footer{
 @media (min-width:901px){
   .process-steps{margin-top:0}
 }
+
+
+/* Visually align the five main process steps */
+.process-step{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.process-step .step-number{
+  flex:0 0 auto;
+  margin-left:auto;
+  margin-right:auto;
+}
+.process-step h3{
+  width:100%;
+  text-align:center;
+}
+.process-step p{
+  width:100%;
+  max-width:220px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+@media (min-width:901px){
+  .process-step h3{
+    display:flex;
+    min-height:52px;
+    align-items:flex-start;
+    justify-content:center;
+  }
+}
