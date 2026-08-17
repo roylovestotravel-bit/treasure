@@ -864,3 +864,95 @@ footer{
 .delivery-path p{font-size:13px;line-height:1.45}
 .delivery-path.shipping{border-top:4px solid var(--accent)}
 .delivery-path.pickup{border-top:4px solid #111}
+
+
+/* Arrow-based purchase flow */
+@media (min-width:901px){
+  .purchase-process{overflow:hidden}
+  .process-steps{
+    position:relative;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:46px;
+    margin-top:190px;
+    border:0;
+  }
+  .process-step{
+    min-height:250px;
+    border:1px solid var(--line);
+    background:#fff;
+    overflow:visible;
+  }
+  .process-step:last-child{border-right:1px solid var(--line)}
+  .process-step:not(:last-child)::after{
+    content:"→";
+    position:absolute;
+    z-index:3;
+    top:50%;
+    right:-37px;
+    width:28px;
+    color:#111;
+    font-size:32px;
+    font-weight:800;
+    line-height:1;
+    text-align:center;
+    transform:translateY(-50%);
+  }
+  .process-step.has-paths::before{
+    content:"↑";
+    position:absolute;
+    top:-58px;
+    left:50%;
+    color:#111;
+    font-size:34px;
+    font-weight:800;
+    line-height:1;
+    transform:translateX(-50%);
+  }
+  .has-paths .delivery-paths{display:block;margin-top:18px}
+  .has-paths .delivery-path.shipping{
+    position:absolute;
+    bottom:calc(100% + 78px);
+    left:-22px;
+    width:calc(100% + 44px);
+    min-height:128px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+  .has-paths .delivery-path.pickup{
+    padding:14px;
+  }
+}
+@media (max-width:900px){
+  .process-steps{
+    display:flex;
+    flex-direction:column;
+    gap:38px;
+    border:0;
+  }
+  .process-step{
+    min-height:0;
+    border:1px solid var(--line);
+    overflow:visible;
+  }
+  .process-step:nth-child(2n),
+  .process-step:last-child{border-right:1px solid var(--line)}
+  .process-step:not(:last-child)::after{
+    content:"↓";
+    position:absolute;
+    left:50%;
+    bottom:-32px;
+    color:#111;
+    font-size:26px;
+    font-weight:800;
+    transform:translateX(-50%);
+  }
+  .has-paths .delivery-path.shipping{position:relative}
+  .has-paths .delivery-path.shipping::before{
+    content:"↳";
+    position:absolute;
+    left:-25px;
+    top:50%;
+    font-size:22px;
+    font-weight:800;
+    transform:translateY(-50%);
+  }
+}
