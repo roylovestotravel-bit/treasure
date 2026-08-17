@@ -431,7 +431,18 @@ Ver detalles
     const move = (direction) => {
       const card = track.querySelector(".product-card");
       const gap = parseFloat(getComputedStyle(track).gap) || 24;
-      track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+      const distance = card.getBoundingClientRect().width + gap;
+      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+      const edgeThreshold = Math.max(4, gap / 2);
+      if (direction > 0 && track.scrollLeft >= maxScroll - edgeThreshold) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+        return;
+      }
+      if (direction < 0 && track.scrollLeft <= edgeThreshold) {
+        track.scrollTo({ left: maxScroll, behavior: "smooth" });
+        return;
+      }
+      track.scrollBy({ left: direction * distance, behavior: "smooth" });
     };
     previous.addEventListener("click", () => move(-1));
     next.addEventListener("click", () => move(1));
