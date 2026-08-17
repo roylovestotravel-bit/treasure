@@ -799,7 +799,7 @@ footer{
 }
 .process-steps{
   display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-columns:1fr 1fr 2fr 1fr 1fr;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
@@ -844,3 +844,23 @@ footer{
   .process-step:last-child{grid-column:auto}
   .process-step .step-number{margin-bottom:28px}
 }
+
+.process-step.has-paths{padding-bottom:20px}
+.delivery-paths{
+  display:grid;
+  gap:10px;
+  margin-top:18px;
+}
+.delivery-path{
+  padding:14px;
+  border:1px solid var(--line);
+  background:#fff;
+}
+.delivery-path strong{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+}
+.delivery-path p{font-size:13px;line-height:1.45}
+.delivery-path.shipping{border-top:4px solid var(--accent)}
+.delivery-path.pickup{border-top:4px solid #111}
