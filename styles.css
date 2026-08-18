@@ -45,9 +45,9 @@ nav a:hover{color:var(--ink);}
 
 .hero{
   position:relative;
-  height:calc(100vh - 126px);
-  min-height:540px;
-  margin:102px 16px 24px;
+  height:calc(100vh - 110px);
+  min-height:580px;
+  margin:92px 12px 18px;
   border-radius:24px;
   overflow:hidden;
   display:flex;
@@ -77,7 +77,7 @@ nav a:hover{color:var(--ink);}
 }
 .hero-overlay h1{
   color:#fff;
-  font-size:clamp(48px,6.2vw,88px);
+  font-size:clamp(38px,3.9vw,56px);
   line-height:1.02;
   margin-bottom:22px;
   letter-spacing:-.035em;
@@ -278,13 +278,13 @@ footer{
 @media(max-width:800px){
   nav{display:none;}
   .hero{
-    height:72vh;
-    min-height:500px;
-    margin:92px 10px 16px;
+    height:76vh;
+    min-height:520px;
+    margin:88px 8px 14px;
     border-radius:18px;
   }
   .hero-overlay{width:92%;padding:24px 16px;}
-  .hero-overlay h1{font-size:clamp(42px,13vw,62px);}
+  .hero-overlay h1{font-size:clamp(36px,10.5vw,48px);}
   .hero-overlay p{font-size:16px;}
   .hero::after{background:linear-gradient(180deg,rgba(0,0,0,.14),rgba(0,0,0,.38));}
   .products{padding:72px 6vw;}
