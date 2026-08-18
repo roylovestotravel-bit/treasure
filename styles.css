@@ -45,12 +45,15 @@ nav a:hover{color:var(--ink);}
 
 .hero{
   position:relative;
-  height:100vh;
-  min-height:560px;
+  height:calc(100vh - 126px);
+  min-height:540px;
+  margin:102px 16px 24px;
+  border-radius:24px;
   overflow:hidden;
   display:flex;
-  align-items:flex-end;
-  background:var(--canvas);
+  align-items:center;
+  justify-content:center;
+  background:var(--ink);
 }
 .hero video{
   position:absolute;
@@ -63,40 +66,45 @@ nav a:hover{color:var(--ink);}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to right,rgba(244,244,241,.72) 0%,rgba(244,244,241,.46) 44%,rgba(244,244,241,.06) 78%);
+  background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.34));
 }
 .hero-overlay{
   position:relative;
   z-index:1;
-  padding:0 6vw 80px;
-  max-width:900px;
+  width:min(920px,88%);
+  padding:40px;
+  text-align:center;
 }
 .hero-overlay h1{
-  font-size:clamp(64px,9vw,132px);
-  line-height:.92;
-  margin-bottom:28px;
-  max-width:850px;
+  color:#fff;
+  font-size:clamp(48px,6.2vw,88px);
+  line-height:1.02;
+  margin-bottom:22px;
+  letter-spacing:-.035em;
 }
 .hero-overlay p{
-  font-size:20px;
-  color:var(--muted);
-  margin-bottom:32px;
-  max-width:620px;
+  font-size:19px;
+  color:rgba(255,255,255,.9);
+  margin:0 auto 30px;
+  max-width:650px;
   font-weight:600;
 }
 .hero-overlay > a{
   display:inline-block;
-  background:var(--ink);
-  color:var(--surface);
-  padding:16px 30px;
+  background:#fff;
+  color:var(--ink);
+  padding:13px 28px;
   font-size:15px;
   font-weight:800;
-  border:2px solid var(--ink);
-  transition:background .2s,color .2s;
+  border:2px solid #fff;
+  border-radius:999px;
+  transition:background .2s,color .2s,transform .2s;
 }
 .hero-overlay > a:hover{
   background:var(--accent);
   color:var(--ink);
+  border-color:var(--accent);
+  transform:translateY(-2px);
 }
 
 .products{
@@ -269,9 +277,16 @@ footer{
 
 @media(max-width:800px){
   nav{display:none;}
-  .hero-overlay h1{font-size:58px;}
-  .hero-overlay p{font-size:17px;}
-  .hero::after{background:rgba(244,244,241,.58);}
+  .hero{
+    height:72vh;
+    min-height:500px;
+    margin:92px 10px 16px;
+    border-radius:18px;
+  }
+  .hero-overlay{width:92%;padding:24px 16px;}
+  .hero-overlay h1{font-size:clamp(42px,13vw,62px);}
+  .hero-overlay p{font-size:16px;}
+  .hero::after{background:linear-gradient(180deg,rgba(0,0,0,.14),rgba(0,0,0,.38));}
   .products{padding:72px 6vw;}
   .product-detail{padding-top:42px;}
   .product-detail-grid{grid-template-columns:1fr;gap:34px;}
