@@ -587,31 +587,20 @@ footer{
   white-space:nowrap;
 }
 .f30-pricing li:last-child{
-  grid-template-columns:minmax(0,1fr) 132px;
-  align-items:center;
-  min-height:52px;
+  grid-template-columns:minmax(0,1fr) auto;
 }
 .pricing-quote-link{
   justify-self:end;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:132px;
-  min-height:36px;
-  padding:7px 10px;
-  border:2px solid var(--ink);
-  background:var(--ink);
-  color:var(--surface);
-  font-size:11px;
+  color:var(--ink);
+  font-size:14px;
   font-weight:900;
-  line-height:1.2;
   white-space:nowrap;
-  transition:background .2s,color .2s,border-color .2s;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  transition:color .2s;
 }
 .pricing-quote-link:hover{
-  background:var(--accent);
-  color:var(--ink);
-  border-color:var(--ink);
+  color:var(--muted);
 }
 .f30-pricing small{
   grid-column:1/-1;
