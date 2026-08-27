@@ -17,19 +17,16 @@
 <div class="product-detail-grid">
 <div class="product-gallery" aria-label="F30 photo gallery">
 <div class="gallery-stage">
-<img id="f30-main-image" class="product-detail-image" src="bike-f30.jpeg" alt="F30 electric bike product photo 1 of 7">
+<img id="f30-main-image" class="product-detail-image" src="f30-gallery-3.jpeg" alt="F30 electric bike product photo 1 of 4">
 <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">‹</button>
 <button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">›</button>
-<div class="gallery-counter" aria-live="polite">1 / 7</div>
+<div class="gallery-counter" aria-live="polite">1 / 4</div>
 </div>
 <div class="gallery-thumbnails" aria-label="Choose a photo">
-<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="View photo 1"><img src="bike-f30.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="1" aria-label="View photo 2"><img src="f30-gallery-1.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="2" aria-label="View photo 3"><img src="f30-gallery-2.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="3" aria-label="View photo 4"><img src="f30-gallery-3.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="4" aria-label="View photo 5"><img src="f30-gallery-4.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="5" aria-label="View photo 6"><img src="f30-gallery-5.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="6" aria-label="View photo 7"><img src="f30-gallery-6.jpeg" alt=""></button>
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="View photo 1"><img src="f30-gallery-3.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="1" aria-label="View photo 2"><img src="f30-gallery-5.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="View photo 3"><img src="f30-gallery-6.jpeg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="3" aria-label="View photo 4"><img src="f30-gallery-new.jpg" alt=""></button>
 </div>
 </div>
 <section>
@@ -43,13 +40,10 @@
 <script>
 (() => {
   const images = [
-    "bike-f30.jpeg",
-    "f30-gallery-1.jpeg",
-    "f30-gallery-2.jpeg",
     "f30-gallery-3.jpeg",
-    "f30-gallery-4.jpeg",
     "f30-gallery-5.jpeg",
-    "f30-gallery-6.jpeg"
+    "f30-gallery-6.jpeg",
+    "f30-gallery-new.jpg"
   ];
   const mainImage = document.getElementById("f30-main-image");
   const counter = document.querySelector(".gallery-counter");
