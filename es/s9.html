@@ -15,7 +15,20 @@
 <main class="product-detail">
 <a class="back-link" href="index.html#products">← Volver a todos los productos</a>
 <div class="product-detail-grid">
-<img class="product-detail-image" src="../s9-bike.jpg" alt="Bicicleta eléctrica S9">
+<div class="product-gallery" aria-label="Galería de fotos de S9">
+<div class="gallery-stage">
+<img id="s9-main-image" class="product-detail-image" src="../s9-2367.jpg" alt="Foto de producto de la bicicleta eléctrica S9 1 de 4">
+<button class="gallery-arrow gallery-prev" type="button" aria-label="Foto anterior">‹</button>
+<button class="gallery-arrow gallery-next" type="button" aria-label="Foto siguiente">›</button>
+<div class="gallery-counter" aria-live="polite">1 / 4</div>
+</div>
+<div class="gallery-thumbnails" aria-label="Elegir una foto">
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="Ver foto 1"><img src="../s9-2367.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="1" aria-label="Ver foto 2"><img src="../s9-2368.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="Ver foto 3"><img src="../s9-2369.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="3" aria-label="Ver foto 4"><img src="../s9-2382.jpg" alt=""></button>
+</div>
+</div>
 <section>
 <h1>S9</h1>
 <p class="product-intro">Una potente bicicleta eléctrica de 1500 W y neumáticos anchos, diseñada para recorridos largos y uso diario.</p>
@@ -43,5 +56,25 @@
 </div>
 </main>
 <footer>© 2026 PA E-Bike Warehouse</footer>
+<script>
+(() => {
+  const images = ["../s9-2367.jpg", "../s9-2368.jpg", "../s9-2369.jpg", "../s9-2382.jpg"];
+  const mainImage = document.getElementById("s9-main-image");
+  const counter = document.querySelector(".gallery-counter");
+  const thumbnails = [...document.querySelectorAll(".gallery-thumbnail")];
+  let current = 0;
+  function show(index) {
+    current = (index + images.length) % images.length;
+    mainImage.src = images[current];
+    mainImage.alt = `Foto de producto de la bicicleta eléctrica S9 ${current + 1} de ${images.length}`;
+    counter.textContent = `${current + 1} / ${images.length}`;
+    thumbnails.forEach((button, i) => button.classList.toggle("active", i === current));
+    thumbnails[current].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+  document.querySelector(".gallery-prev").addEventListener("click", () => show(current - 1));
+  document.querySelector(".gallery-next").addEventListener("click", () => show(current + 1));
+  thumbnails.forEach(button => button.addEventListener("click", () => show(Number(button.dataset.index))));
+})();
+</script>
 </body>
 </html>

@@ -15,7 +15,20 @@
 <main class="product-detail">
 <a class="back-link" href="index.html#products">← Back to all products</a>
 <div class="product-detail-grid">
-<img class="product-detail-image" src="s9-bike.jpg" alt="S9 electric bike">
+<div class="product-gallery" aria-label="S9 photo gallery">
+<div class="gallery-stage">
+<img id="s9-main-image" class="product-detail-image" src="s9-2367.jpg" alt="S9 electric bike product photo 1 of 4">
+<button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">‹</button>
+<button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">›</button>
+<div class="gallery-counter" aria-live="polite">1 / 4</div>
+</div>
+<div class="gallery-thumbnails" aria-label="Choose a photo">
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="View photo 1"><img src="s9-2367.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="1" aria-label="View photo 2"><img src="s9-2368.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="View photo 3"><img src="s9-2369.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="3" aria-label="View photo 4"><img src="s9-2382.jpg" alt=""></button>
+</div>
+</div>
 <section>
 <h1>S9</h1>
 <p class="product-intro">A powerful 1500W fat-tire electric bike built for long-range riding and everyday versatility.</p>
@@ -43,5 +56,25 @@
 </div>
 </main>
 <footer>© 2026 PA E-Bike Warehouse</footer>
+<script>
+(() => {
+  const images = ["s9-2367.jpg", "s9-2368.jpg", "s9-2369.jpg", "s9-2382.jpg"];
+  const mainImage = document.getElementById("s9-main-image");
+  const counter = document.querySelector(".gallery-counter");
+  const thumbnails = [...document.querySelectorAll(".gallery-thumbnail")];
+  let current = 0;
+  function show(index) {
+    current = (index + images.length) % images.length;
+    mainImage.src = images[current];
+    mainImage.alt = `S9 electric bike product photo ${current + 1} of ${images.length}`;
+    counter.textContent = `${current + 1} / ${images.length}`;
+    thumbnails.forEach((button, i) => button.classList.toggle("active", i === current));
+    thumbnails[current].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+  document.querySelector(".gallery-prev").addEventListener("click", () => show(current - 1));
+  document.querySelector(".gallery-next").addEventListener("click", () => show(current + 1));
+  thumbnails.forEach(button => button.addEventListener("click", () => show(Number(button.dataset.index))));
+})();
+</script>
 </body>
 </html>
