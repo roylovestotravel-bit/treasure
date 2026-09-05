@@ -1489,3 +1489,15 @@ body > header:not(.product-detail-header){
 @media(max-width:600px){
   .product-card > a.product-image-link{height:260px;}
 }
+
+
+/* Fill the larger homepage frames without cropping or letterboxing */
+.product-card > a.product-image-link{
+  height:auto;
+  aspect-ratio:4 / 3;
+}
+@media(min-width:901px){
+  .product-carousel .product-card{
+    flex-basis:calc((100% - 48px) / 2.55);
+  }
+}
