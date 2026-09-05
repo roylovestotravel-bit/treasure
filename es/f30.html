@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>F30 | PA E-Bike Warehouse Bicicletas eléctricas</title>
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.css?v=20260905logo">
 </head>
 <body>
 <header class="product-detail-header">
-<a class="brand" href="index.html">PA E-Bike Warehouse</a>
+<a class="brand brand-logo" href="index.html" aria-label="PA E-Bike Warehouse home">
+<img src="../pa-ebike-warehouse-logo.png?v=20260905" alt="PA E-Bike Warehouse">
+</a>
 <nav><a href="index.html#products">Productos</a><a href="index.html#about">Nosotros</a><a href="index.html#contact">Contacto</a></nav>
 <div class="language-switch" aria-label="Idioma"><a href="../f30.html" lang="en">EN</a><span class="active">ES</span></div>
 </header>
@@ -17,16 +19,15 @@
 <div class="product-detail-grid">
 <div class="product-gallery" aria-label="Galería de fotos de F30">
 <div class="gallery-stage">
-<img id="f30-main-image" class="product-detail-image" src="../f30-gallery-3.jpeg" alt="Foto de producto de la bicicleta eléctrica F30 1 de 4">
+<img id="f30-main-image" class="product-detail-image" src="../f30-gallery-new.jpg?v=20260905" alt="Foto de producto de la bicicleta eléctrica F30 1 de 3">
 <button class="gallery-arrow gallery-prev" type="button" aria-label="Foto anterior">‹</button>
 <button class="gallery-arrow gallery-next" type="button" aria-label="Foto siguiente">›</button>
-<div class="gallery-counter" aria-live="polite">1 / 4</div>
+<div class="gallery-counter" aria-live="polite">1 / 3</div>
 </div>
 <div class="gallery-thumbnails" aria-label="Elegir una foto">
-<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="Ver foto 1"><img src="../f30-gallery-3.jpeg" alt=""></button>
+<button class="gallery-thumbnail active" type="button" data-index="0" aria-label="Ver foto 1"><img src="../f30-gallery-new.jpg?v=20260905" alt=""></button>
 <button class="gallery-thumbnail" type="button" data-index="1" aria-label="Ver foto 2"><img src="../f30-gallery-5.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="2" aria-label="Ver foto 3"><img src="../f30-gallery-6.jpeg" alt=""></button>
-<button class="gallery-thumbnail" type="button" data-index="3" aria-label="Ver foto 4"><img src="../f30-gallery-new.jpg?v=2" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="2" aria-label="Ver foto 3"><img src="../f30-gallery-6606.jpg?v=20260905" alt=""></button>
 </div>
 </div>
 <section>
@@ -40,10 +41,9 @@
 <script>
 (() => {
   const images = [
-    "../f30-gallery-3.jpeg",
+    "../f30-gallery-new.jpg?v=20260905",
     "../f30-gallery-5.jpeg",
-    "../f30-gallery-6.jpeg",
-    "../f30-gallery-new.jpg?v=2"
+    "../f30-gallery-6606.jpg?v=20260905"
   ];
   const mainImage = document.getElementById("f30-main-image");
   const counter = document.querySelector(".gallery-counter");
