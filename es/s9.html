@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>S9 | PA E-Bike Warehouse Bicicletas eléctricas</title>
-<link rel="stylesheet" href="../styles.css?v=20260905logo2">
+<link rel="stylesheet" href="../styles.css?v=20260905media">
 </head>
 <body>
 <header class="product-detail-header">
@@ -17,18 +17,20 @@
 <main class="product-detail">
 <a class="back-link" href="index.html#products">← Volver a todos los productos</a>
 <div class="product-detail-grid">
-<div class="product-gallery" aria-label="Galería de fotos de S9">
+<div class="product-gallery" aria-label="Galería S9">
 <div class="gallery-stage">
-<img id="s9-main-image" class="product-detail-image" src="../s9-2367.jpg" alt="Foto de producto de la bicicleta eléctrica S9 1 de 4">
-<button class="gallery-arrow gallery-prev" type="button" aria-label="Foto anterior">‹</button>
-<button class="gallery-arrow gallery-next" type="button" aria-label="Foto siguiente">›</button>
-<div class="gallery-counter" aria-live="polite">1 / 4</div>
+<img id="s9-main-image" class="product-detail-image" src="../s9-2367.jpg" alt="S9 foto del producto 1 de 5">
+<video id="s9-main-video" class="product-detail-video" controls playsinline preload="metadata" hidden aria-label="S9 product video"></video>
+<button class="gallery-arrow gallery-prev" type="button" aria-label="Foto o video anterior">‹</button>
+<button class="gallery-arrow gallery-next" type="button" aria-label="Foto o video siguiente">›</button>
+<div class="gallery-counter" aria-live="polite">1 / 5</div>
 </div>
-<div class="gallery-thumbnails" aria-label="Elegir una foto">
+<div class="gallery-thumbnails" aria-label="Elegir foto o video">
 <button class="gallery-thumbnail active" type="button" data-index="0" aria-label="Ver foto 1"><img src="../s9-2367.jpg" alt=""></button>
 <button class="gallery-thumbnail" type="button" data-index="1" aria-label="Ver foto 2"><img src="../s9-2368.jpg" alt=""></button>
 <button class="gallery-thumbnail" type="button" data-index="2" aria-label="Ver foto 3"><img src="../s9-2369.jpg" alt=""></button>
 <button class="gallery-thumbnail" type="button" data-index="3" aria-label="Ver foto 4"><img src="../s9-2382.jpg" alt=""></button>
+<button class="gallery-thumbnail" type="button" data-index="4" aria-label="Ver video 5"><span class="video-thumbnail-label" aria-hidden="true">▶ Video</span></button>
 </div>
 </div>
 <section>
@@ -60,16 +62,30 @@
 <footer>© 2026 PA E-Bike Warehouse</footer>
 <script>
 (() => {
-  const images = ["../s9-2367.jpg", "../s9-2368.jpg", "../s9-2369.jpg", "../s9-2382.jpg"];
+  const media = [{type:"image",src:"../s9-2367.jpg"},{type:"image",src:"../s9-2368.jpg"},{type:"image",src:"../s9-2369.jpg"},{type:"image",src:"../s9-2382.jpg"},{type:"video",src:"../s9-product-video.mp4?v=20260905"}];
   const mainImage = document.getElementById("s9-main-image");
+  const mainVideo = document.getElementById("s9-main-video");
   const counter = document.querySelector(".gallery-counter");
   const thumbnails = [...document.querySelectorAll(".gallery-thumbnail")];
   let current = 0;
   function show(index) {
-    current = (index + images.length) % images.length;
-    mainImage.src = images[current];
-    mainImage.alt = `Foto de producto de la bicicleta eléctrica S9 ${current + 1} de ${images.length}`;
-    counter.textContent = `${current + 1} / ${images.length}`;
+    current = (index + media.length) % media.length;
+    const item = media[current];
+    mainVideo.pause();
+    if (item.type === "video") {
+      mainImage.hidden = true;
+      mainVideo.hidden = false;
+      if (mainVideo.getAttribute("src") !== item.src) {
+        mainVideo.src = item.src;
+        mainVideo.load();
+      }
+    } else {
+      mainVideo.hidden = true;
+      mainImage.hidden = false;
+      mainImage.src = item.src;
+      mainImage.alt = `S9 product photo ${current + 1} of ${media.length}`;
+    }
+    counter.textContent = `${current + 1} / ${media.length}`;
     thumbnails.forEach((button, i) => button.classList.toggle("active", i === current));
     thumbnails[current].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }

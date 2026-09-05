@@ -1429,3 +1429,38 @@ footer a{
 @media(max-width:650px){
   .products-intro{margin-top:-30px;margin-bottom:34px;font-size:15px;}
 }
+
+
+/* Product gallery video slides */
+.gallery-stage .product-detail-video{
+  display:block;
+  width:100%;
+  height:420px;
+  border:0;
+  background:#000;
+  object-fit:contain;
+}
+.gallery-stage .product-detail-video[hidden],
+.gallery-stage .product-detail-image[hidden]{display:none;}
+.gallery-arrow,.gallery-counter{z-index:2;}
+.gallery-thumbnail .video-thumbnail-label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  background:var(--ink);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+@media(max-width:800px){
+  .gallery-stage .product-detail-video{height:400px;}
+}
+
+/* Keep the full logo while tightening the home header above the video */
+body > header:not(.product-detail-header){
+  padding-top:12px;
+  padding-bottom:12px;
+}
