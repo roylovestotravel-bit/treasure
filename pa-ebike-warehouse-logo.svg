@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 180" role="img" aria-labelledby="title desc">
+<title id="title">PA E-Bike Warehouse</title>
+<desc id="desc">Minimal PA monogram and PA E-Bike Warehouse wordmark</desc>
+<g fill="#101010">
+  <path d="M18 22h132c57 0 90 25 90 70 0 47-35 72-94 72H18V22zm44 38v66h82c34 0 51-11 51-34 0-22-17-32-51-32H62z"/>
+  <path d="M217 164 292 22h48l76 142h-49l-15-30h-74l-15 30h-46zm78-65h40l-20-42-20 42z"/>
+</g>
+<path fill="#d7ff00" d="m286 134 34-61h37l-35 61h-36z"/>
+<path fill="#101010" d="M446 24h4v136h-4z"/>
+<g fill="#101010">
+  <text x="490" y="91" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="900" letter-spacing="-2">PA E-BIKE</text>
+  <text x="493" y="145" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="700" letter-spacing="12">WAREHOUSE</text>
+</g>
+</svg>
